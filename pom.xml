@@ -38,8 +38,7 @@
 					<version>2.5.3</version>
 					<configuration>
 						<arguments>
-							-DskipTests=true
-							-Dmaven.deploy.skip=true
+							-DskipTests=true -Dmaven.deploy.skip=true
 						</arguments>
 						
 					</configuration>
