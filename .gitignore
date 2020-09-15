@@ -13,3 +13,6 @@
 **/*.log
 
 /.metadata/
+
+*.releaseBackup
+**/*.releaseBackup
