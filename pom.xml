@@ -37,7 +37,11 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>2.5.3</version>
 					<configuration>
-						<arguments>-DskipTests=true</arguments>
+						<arguments>
+							-DskipTests=true
+							-Dmaven.deploy.skip=true
+						</arguments>
+						
 					</configuration>
 				</plugin>
 
