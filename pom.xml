@@ -43,11 +43,24 @@
 							-DskipTests=true
 						</arguments>
 						<!-- -DskipTests=true -Dmaven.deploy.skip=true -->
-						<autoVersionSubmodules>true</autoVersionSubmodules>
-						<!-- <tagNameFormat>@{project.artifactId}-@{project.version}</tagNameFormat> -->
-						<useReleaseProfile>false</useReleaseProfile>
-						<developmentVersion>${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}.0-SNAPSHOT</developmentVersion>
+						<scripts>
+							<script>
+                                <![CDATA[
+                                    final String SNAPSHOT = '-SNAPSHOT'
 
+                                    Properties releaseProps = new Properties()
+                                    File releasePropsFile = new File('release.properties')
+                                    String releaseVersion = '${project.version}'.replace('-SNAPSHOT', '')
+                                    String[] vNumbers = releaseVersion.split('\\.')
+                                    String snapshotVersion = vNumbers[0] + '.' + (Integer.parseInt(vNumbers[1]) + 1) + '.' + '0' + SNAPSHOT
+
+                                    releaseProps.setProperty('scm.tag', 'v' + releaseVersion)
+                                    releaseProps.setProperty('project.rel.${project.groupId}:${project.artifactId}', releaseVersion)
+                                    releaseProps.setProperty('project.dev.${project.groupId}:${project.artifactId}', snapshotVersion)
+                                    releaseProps.store(releasePropsFile.newWriter(), null)
+                                ]]>
+							</script>
+						</scripts>
 					</configuration>
 				</plugin>
 
