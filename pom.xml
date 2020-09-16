@@ -43,7 +43,8 @@
 						<arguments>
 							-DskipTests=true
 						</arguments>
-						<!-- -DskipTests=true -Dmaven.deploy.skip=true -->						
+						<!-- -DskipTests=true -Dmaven.deploy.skip=true -->		
+						<autoVersionSubmodules>true</autoVersionSubmodules>				
 					</configuration>
 					
 				</plugin>
