@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>div.yjcheng</groupId>
 		<artifactId>myMavenRelease</artifactId>
-		<version>${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}.0-SNAPSHOT</version>
+		<version>0.0.10-SNAPSHOT</version>
 	</parent>
 	<artifactId>my-module-2</artifactId>
 	<packaging>jar</packaging>
